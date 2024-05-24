@@ -21,7 +21,7 @@ const { error } = await supabase
 
 if(error){
     console.error(error)
-    throw new Error('Cabins could not be deleted')
+    throw new Error('Cabin could not be deleted')
 }
 
 }
