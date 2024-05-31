@@ -14,7 +14,7 @@ return (<Modal>
   </Modal.Window>
 
   <Modal.Open opens='table'>
-    <Button>Shaw Table</Button>
+    <Button>Show Table</Button>
   </Modal.Open>
   <Modal.Window name='table'>
     <CabinTable />
