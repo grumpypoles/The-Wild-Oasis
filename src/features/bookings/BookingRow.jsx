@@ -6,7 +6,7 @@ import Table from "../../ui/Table";
 
 import Menus from "../../ui/Menus";
 import Modal from "../../ui/Modal";
-import { HiEye, HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
+import { HiArrowDownOnSquare, HiEye } from "react-icons/hi2";
 
 import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
@@ -53,7 +53,7 @@ function BookingRow({
     cabins: { name: cabinName },
   },
 }) {
-const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const statusToTagName = {
     unconfirmed: "blue",
@@ -88,33 +88,23 @@ const navigate = useNavigate()
       <Amount>{formatCurrency(totalPrice)}</Amount>
 
       <Menus.Menu>
-            <Menus.Toggle id={bookingId} />
-            <Menus.List id={bookingId}>
-              <Menus.Button icon={<HiEye />} onClick={() =>navigate(`/bookings/${bookingId}`)}>
-                See Details
-              </Menus.Button>
+        <Menus.Toggle id={bookingId} />
+        <Menus.List id={bookingId}>
+          <Menus.Button
+            icon={<HiEye />}
+            onClick={() => navigate(`/bookings/${bookingId}`)}
+          >
+            See Details
+          </Menus.Button>
 
-              {/* <Modal.Open opens="edit">
-                <Menus.Button icon={<HiPencil />}>Edit</Menus.Button>
-              </Modal.Open>
-
-              <Modal.Open opens="delete">
-                <Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
-              </Modal.Open> */}
-            </Menus.List>
-
-            {/* <Modal.Window name="edit">
-              <CreateCabinForm cabinToEdit={cabin} />
-            </Modal.Window>
-
-            <Modal.Window name="delete">
-              <ConfirmDelete
-                resourceName="cabins"
-                disabled={isDeleting}
-                onConfirm={() => deleteCabin(cabinId)}
-              />
-            </Modal.Window> */}
-          </Menus.Menu>
+         {status === 'unconfirmed' && <Menus.Button
+            icon={<HiArrowDownOnSquare />}
+            onClick={() => navigate(`/checkin/${bookingId}`)}
+          >
+            Check in
+          </Menus.Button>}
+        </Menus.List>
+      </Menus.Menu>
     </Table.Row>
   );
 }
