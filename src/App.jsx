@@ -16,6 +16,7 @@ import { Toaster } from "react-hot-toast";
 import Booking from "./pages/Booking";
 import Checkin from "./pages/Checkin";
 import ProtectedRoute from "./ui/ProtectedRoute";
+import { DarkModeProvider } from "./context/DarkModeContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,6 +29,10 @@ const queryClient = new QueryClient({
 
 function App() {
   return (
+   
+    <DarkModeProvider>
+
+    
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <GlobalStyles />
@@ -77,7 +82,9 @@ function App() {
         }}
       />
     </QueryClientProvider>
+    </DarkModeProvider>
   );
+ 
 }
 
 export default App;
