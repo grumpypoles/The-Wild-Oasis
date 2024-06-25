@@ -1,4 +1,7 @@
-# React + Vite
+# The Wild Oasis
+## React + Vite 
+
+Main Project in Ultimate React Course with React Query and Supabase.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
